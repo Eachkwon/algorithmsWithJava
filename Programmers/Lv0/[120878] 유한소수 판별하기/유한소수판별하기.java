@@ -1,12 +1,7 @@
 package Programmers.Lv0;
 
-import java.util.ArrayList;
-import java.util.List;
-
 class Solution {
     public int solution(int a, int b) {
-        int answer = 2;
-
         int idx = 2;
         while(idx<=a) {
             if(a%idx==0&&b%idx==0) {
@@ -17,36 +12,25 @@ class Solution {
             }
         }
 
-        if(a%b==0) {
-            return 1;
-        }
-
-        idx = 2;
-        List<Integer> arr1 = new ArrayList<>();
-        while(idx<=b) {
-            if(b%idx==0) {
-                if(!arr1.contains(idx)){
-                    arr1.add(idx);
-                }
-                b/= idx;
-            } else {
-                idx++;
+        while(b>1) {
+            if(b%2==0) {
+                b /= 2;
+                continue;
             }
+            if(b%5==0) {
+                b /= 5;
+                continue;
+            }
+            return 2;
         }
 
-        int[] arr2 = arr1.stream().mapToInt(Integer::intValue).toArray();
-        if(arr2.length==2&&arr2[0]*arr2[1]==10) {
-            answer = 1;
-        } else if(arr2.length==1&&arr2[0]==2||arr2.length==1&&arr2[0]==5) {
-            answer = 1;
-        }
-
-        return answer;
+        return 1;
     }
 }
 
 /*
-2.52
-2.07
-2.20
+기약분수로 나타낸 후 분모의 소인수를 확인할 때 List에서 반복문으로 변경
+2.52ms → 0.03ms
+2.07ms → 0.02ms
+2.20ms → 0.01ms
  */
