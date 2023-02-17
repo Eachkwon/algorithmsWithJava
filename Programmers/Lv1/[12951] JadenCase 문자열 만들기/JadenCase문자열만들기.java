@@ -4,19 +4,21 @@ class Solution {
     public String solution(String s) {
         s = s.toLowerCase();
         String[] arr = s.split(" ");
-        String answer = arr[0].substring(0,1).toUpperCase() + arr[0].substring(1);
+        StringBuilder sb = new StringBuilder();
+        sb.append(arr[0].substring(0,1).toUpperCase());
+        sb.append(arr[0].substring(1));
 
         for(int i=1; i<arr.length; i++) {
-            answer += " "+arr[i].substring(0,1).toUpperCase();
-            answer +=  arr[i].substring(1);
+            sb.append(" ").append(arr[i].substring(0,1).toUpperCase());
+            sb.append(arr[i].substring(1));
         }
 
-        return answer;
+        return sb.toString();
     }
 }
 
 /*
-12.01
-8.50
-11.87
+12.01ms → 0.15ms
+8.50ms → 0.15ms
+11.87ms → 0.18ms
  */
