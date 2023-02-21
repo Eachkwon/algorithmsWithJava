@@ -1,4 +1,4 @@
-package Programmers.Lv1;
+package Programmers.Lv2;
 
 class Solution {
     public String solution(String s) {
