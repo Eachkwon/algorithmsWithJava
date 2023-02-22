@@ -5,13 +5,15 @@ class Solution {
         int answer = 0;
 
         for(int i=2; i<=n; i++){
-            for(int j=2; j<=n; j++) {
-                if(i%j==0&&i!=j){
+            boolean prime = true;
+            for(int j=2; j<=Math.sqrt(i); j++) {
+                if(i%j==0){
+                    prime = false;
                     break;
-                } else if(i%j==0&&i==j) {
-                    answer++;
                 }
             }
+
+            if(prime) { answer++; }
         }
 
         return answer;
@@ -19,7 +21,7 @@ class Solution {
 }
 
 /*
-6.12ms
-31.14ms
-59.78ms
+6.12ms → 0.80ms
+31.14ms → 1.49ms
+59.78ms → 2.37ms
  */
