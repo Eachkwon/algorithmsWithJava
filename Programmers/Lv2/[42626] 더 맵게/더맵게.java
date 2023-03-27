@@ -48,6 +48,7 @@ priorityQueue.offer(3);
 3. 값 삭제
 priorityQueue.poll(); // 첫 번째 값을 반환하고 제거, 비어있다면 null
 priorityQueue.remove(); // 첫 번째 값 제거
+priorityQueue.remove(int n); // n이 있을 경우 제거
 priorityQueue.clear(); // 초기화
 4. 기타 메서드
 priorityQueue.peek(); // 첫 번째 값 참조
