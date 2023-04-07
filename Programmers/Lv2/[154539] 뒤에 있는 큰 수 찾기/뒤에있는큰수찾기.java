@@ -1,21 +1,25 @@
 package Programmers.Lv2;
 
+import java.util.Stack;
+
 class Solution {
     public int[] solution(int[] numbers) {
         int[] answer = new int[numbers.length];
-        answer[numbers.length-1] = -1;
+        Stack<Integer> stack = new Stack<>();
 
-        for(int i=0; i<numbers.length-1; i++) {
-            int max = -1;
-
-            for(int j=i+1; j<numbers.length; j++) {
-                if(numbers[i]<numbers[j]) {
-                    max = numbers[j];
+        for(int i=numbers.length-1; i>=0; i--) {
+            while(!stack.isEmpty()) {
+                if(stack.peek()>numbers[i]) {
+                    answer[i] = stack.peek();
                     break;
+                } else {
+                    stack.pop();
                 }
             }
 
-            answer[i] = max;
+            if(stack.isEmpty()) answer[i] = -1;
+
+            stack.push(numbers[i]);
         }
 
         return answer;
