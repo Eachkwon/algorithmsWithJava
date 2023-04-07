@@ -25,9 +25,3 @@ class Solution {
         return answer;
     }
 }
-
-/*
-50.82ms
-41.35ms
-36.12ms
- */
